@@ -1,0 +1,23 @@
+{
+  "name": "movie-crud-frontend",
+  "version": "1.0.0",
+  "description": "front-end application for MOVIE CRUD DB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./javascripts/scripts.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafischer1/movie-crud-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafischer1/movie-crud-frontend/issues"
+  },
+  "homepage": "https://github.com/rafischer1/movie-crud-frontend#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

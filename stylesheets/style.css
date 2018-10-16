@@ -1,0 +1,11 @@
+body {
+  background-color: salmon;
+  padding: 50px;
+  color: teal;
+  border: 10px ridge teal;
+  font: 30px "Comic Sans MS", cursive, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
