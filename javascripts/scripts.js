@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('script: 🎬')
   getMovies()
+  formSubmit()
+
 
   //select form stuff
+
 
 
   //end of DOMContentLoaded scope\\
@@ -10,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getMovies() {
   axios.get('https://fischer-moviedb.herokuapp.com/movies')
-    .then(function(res) {
+    .then((res) => {
       // handle success
       // IDEA: set the card image max width to asdjust the pic sizes...instead of sizing evry one/size the conta8ier
 
@@ -32,6 +35,7 @@ function getMovies() {
         let imgSrc = document.createElement('img')
         let divCardContent = document.createElement('div')
         divCardContent.className = 'card-content'
+        let del_button = document.createElement('button')
 
         spanCardTitle.innerText = `${movies.title} \n Year: ${movies.release_date}`
         imgSrc.src = movies.photo
@@ -44,10 +48,24 @@ function getMovies() {
         divCard.appendChild(divCardImage)
         divCardImage.appendChild(imgSrc)
         divCard.appendChild(divCardContent)
+        divCardContent.appendChild(del_button)
+        del_button.innerText = "X"
+        del_button.setAttribute('data-id', movies.id)
+        // console.log(movies.id)
 
-        let selectForm = document.querySelectorAll('select')
-        let instances = M.FormSelect.init(selectForm, movies.title)
 
+        // DELETE THIS RECORD!
+        del_button.addEventListener('click', (ev) => {
+          axios.delete(`https://fischer-moviedb.herokuapp.com/movies/${movies.id}`)
+            .then((res) => {
+              console.log(`deleted`)
+              ev.target.parentElement.parentElement.remove()
+              // getMovies()
+            })
+            .catch((err) => {
+              console.log(err)
+            })
+        })
       })
     })
     .catch(function(error) {
@@ -59,40 +77,33 @@ function getMovies() {
     });
 }
 
-function deleteMovie() {
-  axios.delete(`/reports/${recordId}`)
-    .then((response) => {
-      console.log(response)
-      ev.target.parentElement.parentElement.remove()
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-}
-
 function formSubmit() {
-  let form = document.getElementById('create-report')
-  form.addEventListener('submit', (ev) => {
-    ev.preventDefault()
+  let formBtn = document.getElementById('filmForm')
+  formBtn.addEventListener('submit', (e) => {
+    e.preventDefault()
+    // console.log('value:', e.target.elements[2].value)
 
     // grab all values from the form
     let postData = {}
-    let formElements = ev.target.elements
+    let formElements = e.target.elements
+    let editTitle = e.target.elements[0].value
+    let editYear = e.target.elements[1].value
+    let editPhoto = e.target.elements[2].value
+    console.log('submit photo:', e.target.elements[2].value)
 
-    for (var i = 0; i < formElements.length; i++) {
-      let inputName = formElements[i].name
-      if (inputName) {
-        postData[inputName] = formElements[i].value
-      }
+    let newFilmObj = {
+      title: editTitle,
+      release_date: editYear,
+      photo: editPhoto
     }
 
-    console.log('postData', postData);
+    // console.log('film Obj:', newFilmObj)
 
     // axios.post that data to the correct backend route
-    axios.post('/movies', postData)
+    axios.post('https://fischer-moviedb.herokuapp.com/movies', newFilmObj)
       .then((response) => {
-        console.log(response)
-        getMovies() //call this once again
+        console.log('response', response)
+        //call this once again
       })
       .catch((error) => {
         console.log(error)

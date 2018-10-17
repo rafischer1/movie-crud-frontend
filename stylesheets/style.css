@@ -19,12 +19,8 @@ h2 {
 }
 
 #cards {
-  
   justify-content: center;
-  
 }
-
-
 
 .card {
   width: 200px;
@@ -39,11 +35,10 @@ h2 {
   border: none;
 }
 
-
-
 .col.s12.m7 {
-    width: 100%;
-  }
+  width: 100%;
+}
+  
 img {
   height: 50%;
   width: 50%;
@@ -55,7 +50,7 @@ div.col {
 
 .nav {
   font-family: 'Petrona', serif;
-padding: 10px;
+  padding: 10px;
 
   /* background-color: rgb(215, 202, 181); */
 }
@@ -69,7 +64,7 @@ a {
 a:hover {
   color:rgb(23, 140, 77);
   border: 1px solid teal;
-  border-radius: 50px;
+  border-radius: 40px;
 }
 
 a:active {
