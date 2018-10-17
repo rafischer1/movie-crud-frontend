@@ -4,6 +4,18 @@
   <head>
     <meta charset="utf-8">
     <title>Index</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Petrona|Rosarivo"
+      rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet"
       href="./stylesheets/style.css">
     <!-- axios -->
@@ -11,11 +23,47 @@
   </head>
 
   <body>
-    <h2>MOVIE DB HOMEPAGE</h2>
-    <h5>How do I do this?</h5>
-    <img id="pageMovieOne"
-      src="https://www.stevensegallery.com/250/400"
-      alt="">
+    <header id="nav">
+      <h2>THE FILMS OF WERNER HERZOG</h2>
+      <a href="./html/movies.html">MOVIES PAGE</a>
+    </header>
+    <div class="container form">
+      <div class="row login">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="textarea1"
+                class="materialize-textarea"></textarea>
+              <label for="textarea1">Username</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row login">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="textarea1"
+                class="materialize-textarea"></textarea>
+              <label for="textarea1">Password</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <a href="./html/movies.html"><button class="btn waves-effect waves-light brown lighten-1"
+        type="submit"
+        id="loginBtn"
+        name="action">sign in
+    <i class="material-icons"></i>
+  </button></a>
+    </div>
+
+
+
+
+
+
+
     <script src="./javascripts/scripts.js"></script>
     </script>
   </body>

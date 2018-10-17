@@ -1,11 +1,69 @@
 body {
-  background-color: salmon;
-  padding: 50px;
-  color: teal;
-  border: 10px ridge teal;
-  font: 30px "Comic Sans MS", cursive, sans-serif;
+  background-color: rgb(196, 186, 176);
+  font-family: 'Petrona', serif;
+  text-align: center;
+  position: relative;
+  display: run-in;
 }
 
-a {
-  color: #00B7FF;
+#nav {
+  background-color: rgb(108, 101, 94);
+  color: rgb(215, 202, 181);
+  margin-top: -35px;
+  padding: 10px;
+
+}
+
+h2 {
+  font-family: 'Rosarivo', serif;
+}
+
+#cards {
+  
+  justify-content: center;
+  
+}
+
+
+
+.card {
+  width: 200px;
+  padding: 5px;
+  background-color: rgb(46, 45, 46);
+  color: rgb(215, 202, 181);
+
+}
+
+#loginBtn, #formBtn {
+  border-radius: 25px;
+}
+
+.col.s12.m7 {
+    width: 100%;
+  }
+img {
+  height: 50%;
+  width: 50%;
+}
+
+div.col {
+  padding: 10px;
+}
+
+
+/* login page */
+.login {
+  width: 50%;
+  margin: 2px;
+  color: rgb(34, 218, 181);
+}
+
+.input-field>label {
+  font-size: 24px;
+  color: rgb(22, 34, 65);
+}
+
+#filmForm {
+  text-align: left;
+  padding: 5px 10px 5px 50px;
 }

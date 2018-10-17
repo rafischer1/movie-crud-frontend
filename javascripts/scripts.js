@@ -2,16 +2,46 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('script: 🎬')
   getMovies()
 
-
-
   //end of DOMContentLoaded scope\\
 })
 
 function getMovies() {
   axios.get('https://fischer-moviedb.herokuapp.com/movies')
-    .then(function(response) {
+    .then(function(res) {
       // handle success
-      console.log(response.data);
+      // IDEA: set the card image max width to asdjust the pic sizes...instead of sizing evry one/size the conta8ier
+
+      res.data.forEach((movies) => {
+        // console.log(movies.photo);
+
+        let divRow = document.createElement('div')
+        divRow.className = "row"
+        let divCol = document.createElement('div')
+        divCol.className = "col s12 m7"
+        // divCol.className = "s12"
+        // divCol.className = "m7"
+        let divCard = document.createElement('div')
+        divCard.className = "card"
+        let spanCardTitle = document.createElement('span')
+        spanCardTitle.className = 'card-title'
+        let divCardImage = document.createElement('div')
+        divCardImage.className = 'card-image'
+        let imgSrc = document.createElement('img')
+        let divCardContent = document.createElement('div')
+        divCardContent.className = 'card-content'
+
+        spanCardTitle.innerText = `${movies.title} \n Year: ${movies.release_date}`
+        imgSrc.src = movies.photo
+
+        let parent = document.getElementById('cards')
+        parent.appendChild(divRow)
+        divRow.appendChild(divCol)
+        divCol.appendChild(divCard)
+        divCard.appendChild(spanCardTitle)
+        divCard.appendChild(divCardImage)
+        divCardImage.appendChild(imgSrc)
+        divCard.appendChild(divCardContent)
+      })
     })
     .catch(function(error) {
       // handle error
@@ -61,4 +91,12 @@ function formSubmit() {
         console.log(error)
       })
   })
+}
+
+function selectAutofill() {
+  document.addEventListener('DOMContentLoaded', function() {
+    getMovies()
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
+  });
 }
