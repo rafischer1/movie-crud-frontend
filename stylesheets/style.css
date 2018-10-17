@@ -36,7 +36,10 @@ h2 {
 
 #loginBtn, #formBtn {
   border-radius: 25px;
+  border: none;
 }
+
+
 
 .col.s12.m7 {
     width: 100%;
@@ -50,6 +53,38 @@ div.col {
   padding: 10px;
 }
 
+.nav {
+  font-family: 'Petrona', serif;
+padding: 10px;
+
+  /* background-color: rgb(215, 202, 181); */
+}
+
+a {
+  color: white;
+  font-size: 18px;
+    padding: 20px;
+}
+
+a:hover {
+  color:rgb(23, 140, 77);
+  border: 1px solid teal;
+  border-radius: 50px;
+}
+
+a:active {
+  color:rgb(85, 64, 55);
+  padding: 18px;
+  
+}
+
+a:visited {
+  color: white;
+}
+
+a#loginBtn:hover {
+  border: none;
+}
 
 /* login page */
 .login {
@@ -66,4 +101,8 @@ div.col {
 #filmForm {
   text-align: left;
   padding: 5px 10px 5px 50px;
+}
+
+#selectForm {
+ border: 3px solid white;
 }

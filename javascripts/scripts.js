@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('script: 🎬')
   getMovies()
 
+  //select form stuff
+
+
   //end of DOMContentLoaded scope\\
 })
 
@@ -41,6 +44,10 @@ function getMovies() {
         divCard.appendChild(divCardImage)
         divCardImage.appendChild(imgSrc)
         divCard.appendChild(divCardContent)
+
+        let selectForm = document.querySelectorAll('select')
+        let instances = M.FormSelect.init(selectForm, movies.title)
+
       })
     })
     .catch(function(error) {
