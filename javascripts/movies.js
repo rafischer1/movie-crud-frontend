@@ -75,15 +75,20 @@ function getMovies() {
 
         // DELETE THIS RECORD!
         del_button.addEventListener('click', (ev) => {
-          axios.delete(`https://fischer-moviedb.herokuapp.com/movies/${movies.id}`)
-            .then((res) => {
-              console.log(`deleted`)
-              ev.target.parentElement.parentElement.remove()
-              // getMovies()
-            })
-            .catch((err) => {
-              console.log(err)
-            })
+          if (confirm('Are you sure you want to delete this film?')) {
+            axios.delete(`https://fischer-moviedb.herokuapp.com/movies/${movies.id}`)
+              .then((res) => {
+                console.log(`deleted`)
+                ev.target.parentElement.parentElement.remove()
+                // getMovies()
+                alert(`Deleted! “Those who read own the world, and those who watch television lose it. ” ― WH`)
+              })
+              .catch((err) => {
+                console.log(err)
+              })
+          } else {
+            alert('“Do you not then hear this horrible scream all around you that people usually call silence.” - WH')
+          }
         })
       })
     })

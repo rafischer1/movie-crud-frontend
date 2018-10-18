@@ -35,7 +35,7 @@ function formSubmit() {
       .then((response) => {
         console.log('response', response)
         if (response) {
-          alert('Film to Database Success!')
+          alert(`Success! “I'm quite convinced that cooking is the only alternative to film making. Maybe there's also another alternative, that's walking on foot.” ― WH`)
         }
         //call this once again
       })
