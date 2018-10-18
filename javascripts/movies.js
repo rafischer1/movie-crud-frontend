@@ -14,7 +14,8 @@ function getMovies() {
       // handle success
       // IDEA: set the card image max width to asdjust the pic sizes...instead of sizing evry one/size the conta8ier
       res.data.forEach((movies) => {
-        // console.log(movies.photo);
+        console.log('movies.photo:', movies.photo)
+
 
         let divRow = document.createElement('div')
         divRow.className = "row"
@@ -34,10 +35,9 @@ function getMovies() {
         let del_button = document.createElement('button')
         let radio_button_input = document.createElement('a')
 
-
         spanCardTitle.innerText = `${movies.title} \n Year: ${movies.release_date}`
         imgSrc.src = movies.photo
-        // console.log('image source:', imgSrc.src)
+
 
         let parent = document.getElementById('cards')
         parent.appendChild(divRow)

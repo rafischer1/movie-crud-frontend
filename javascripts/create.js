@@ -14,7 +14,6 @@ function formSubmit() {
   }
   formBtn.addEventListener('submit', (e) => {
     e.preventDefault()
-    // console.log('value:', e.target.elements[2].value)
     // grab all values from the form
     let postData = {}
     let formElements = e.target.elements
@@ -28,8 +27,6 @@ function formSubmit() {
       photo: editPhoto
     }
 
-    console.log('submit photo:', newFilmObj.photo)
-    // console.log('film Obj:', newFilmObj)
     // axios.post that data to the correct backend route
     axios.post('https://fischer-moviedb.herokuapp.com/movies', newFilmObj)
       .then((response) => {

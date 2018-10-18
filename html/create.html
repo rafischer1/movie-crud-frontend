@@ -20,54 +20,48 @@
 
   <body>
     <header id="nav">
-      <h2>Werner Herzog Films Editing Page</h2>
+      <h2>Werner Herzog Films Create</h2>
       <div class="container nav">
         <a href="../index.html"
           target="_blank">Login</a>
         <a href="./movies.html">Back to Films</a>
-        <a href="./edit.html">Edit a Film</a>
+        <a href="./edit/edit.html">Edit a Film</a>
       </div>
     </header>
 
     <div class="container">
-      <div class="input-field brown lighten-3"
-        id="selectForm">
-        <label>Film Selection</label>
-        <select>
-          <option value="" disabled selected>Choose film to edit | Select new to add film</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
-        </select>
 
-      </div> <br><br><br>
+      <p>Film Creation</p>
 
 
-      <div class="input-field col s12 brown lighten-4"
-        id="filmForm">
-        <form action="">
-          <br>
-          <input type="text"
-            required>Title<br>
-          <input type="number"
-            required>Release Year<br>
-          <input type="text"
-            placeholder="https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWZR15GD/image?locale=en-ca&mode=crop&purposes=BoxArt&q=90&h=300&w=200&format=jpg">Link
-          to film photo address
-          <br>
-          <br>
-          <br>
-          <button class="btn waves-effect waves-light brown lighten-1"
-            type="submit"
-            id="formBtn"
-            name="action">
+    </div> <br><br><br>
+
+
+    <div class="input-field col s12 brown lighten-4"
+      id="filmForm">
+      <form action="">
+        <br>
+        <input type="text"
+          required>Title<br>
+        <input type="number"
+          required>Release Year<br>
+        <input type="text"
+          placeholder="https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWZR15GD/image?locale=en-ca&mode=crop&purposes=BoxArt&q=90&h=300&w=200&format=jpg">Link
+        to film photo address
+        <br>
+        <br>
+        <br>
+        <button class="btn waves-effect waves-light brown lighten-1"
+          type="submit"
+          id="formBtn"
+          name="action">
           <i class="material-icons">submit</i>
           </button>
-        </form>
-        <br>
-        <div id="submitBadge"
-          class="new badge blue lighten-2">New Film Created</div>
-      </div>
+      </form>
+      <br>
+      <div id="submitBadge"
+        class="new badge blue lighten-2">New Film Created</div>
+    </div>
 
 
     </div>
