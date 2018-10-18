@@ -2,8 +2,7 @@ body {
   background-color: rgb(196, 186, 176);
   font-family: 'Petrona', serif;
   text-align: center;
-  position: relative;
-  display: run-in;
+  position: inherit;
 }
 
 #nav {
@@ -21,8 +20,9 @@ h2 {
   justify-content: center;
 }
 
+
 .card {
-  width: 200px;
+  max-width: 400px;
   padding: 5px;
   background-color: rgb(46, 45, 46);
   color: rgb(215, 202, 181);
