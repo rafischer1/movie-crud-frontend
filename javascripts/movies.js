@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('script: 🎬')
+  M.AutoInit();
   getMovies()
 
-
-  //
-  // instance.open()
   //end of DOMContentLoaded scope\\
 })
 
@@ -12,17 +10,13 @@ function getMovies() {
   axios.get('https://fischer-moviedb.herokuapp.com/movies')
     .then((res) => {
       // handle success
-      // IDEA: set the card image max width to asdjust the pic sizes...instead of sizing evry one/size the conta8ier
       res.data.forEach((movies) => {
-        console.log('movies.photo:', movies.photo)
-
-
+        ////////////set data into cards\\\\\\\\\\\\
+        ///////////////generate cards\\\\\\\\\\\\\\
+        let parent = document.getElementById('cards')
         let divRow = document.createElement('div')
-        divRow.className = "row"
         let divCol = document.createElement('div')
         divCol.className = "col s12 m7"
-        // divCol.className = "s12"
-        // divCol.className = "m7"
         let divCard = document.createElement('div')
         divCard.className = "card"
         let spanCardTitle = document.createElement('span')
@@ -33,13 +27,10 @@ function getMovies() {
         let divCardContent = document.createElement('div')
         divCardContent.className = 'card-content'
         let del_button = document.createElement('button')
-        let radio_button_input = document.createElement('a')
+        let editBtn = document.createElement('a')
 
         spanCardTitle.innerText = `${movies.title} \n Year: ${movies.release_date}`
         imgSrc.src = movies.photo
-
-
-        let parent = document.getElementById('cards')
         parent.appendChild(divRow)
         divRow.appendChild(divCol)
         divCol.appendChild(divCard)
@@ -50,31 +41,26 @@ function getMovies() {
         divCardContent.appendChild(del_button)
         del_button.innerText = "X"
         del_button.setAttribute('data-id', movies.id)
-        divCardContent.appendChild(radio_button_input)
-        radio_button_input.setAttribute('movie-id', movies.id)
-        radio_button_input.setAttribute('name', 'Edit')
-        radio_button_input.className = "editBtn"
-        radio_button_input.innerText = "Edit"
-        // console.log(radio_button_input)
-        // console.log(movies.id)
+        del_button.className = "delBtn"
+        divCardContent.appendChild(editBtn)
+        editBtn.setAttribute('movieId', movies.id)
+        editBtn.setAttribute('data-target', 'modal1')
+        editBtn.setAttribute('name', 'Edit')
+        editBtn.className = "editBtn modal-trigger"
+        editBtn.innerText = "Edit"
 
-        //edit this record!!
-        document.addEventListener('DOMContentLoaded', () => {
-          let editBtn = document.querySelectorAll('button.editBtn')
-          console.log('edit function btn', editBtn)
-
-          editBtn.addEventListener('click', (ev) => {
-            console.log('I am a function!')
-          })
-
+        /////edit this record!!\\\\\
+        editBtn.addEventListener('click', (ev) => {
+          if (ev) {
+            modalFunction(ev)
+          } else {
+            alert(`That didn't work for some reason`)
+          }
         })
-
-
-
-
-
-        // DELETE THIS RECORD!
+        //////////// DELETE THIS RECORD! \\\\\\\\\\\\\\\\
+        // let del_button = document.querySelectorAll('button.delBtn')
         del_button.addEventListener('click', (ev) => {
+          ev.preventDefault()
           if (confirm('Are you sure you want to delete this film?')) {
             axios.delete(`https://fischer-moviedb.herokuapp.com/movies/${movies.id}`)
               .then((res) => {
@@ -99,4 +85,51 @@ function getMovies() {
     .then(function() {
       // always executed
     })
+}
+
+function modalFunction(ev) {
+  console.log('movie ID:', ev.target.getAttribute('movieid'))
+  let id = ev.target.getAttribute('movieid')
+  let openModal = document.querySelectorAll('.modal')
+  let instance = M.Modal.init(openModal)
+  axios.get(`https://fischer-moviedb.herokuapp.com/movies/${id}`)
+    .then((movie) => {
+      console.log('movie', movie)
+      let modalTitle = document.getElementById('modalTitle')
+      let modalYear = document.getElementById('modalYear')
+      let modalPhoto = document.getElementById('modalPhoto')
+      modalTitle.value = movie.data[0].title
+      modalPhoto.value = movie.data[0].photo
+      modalYear.value = movie.data[0].release_date
+
+      let modalSubmit = document.getElementById('modalSubmit')
+      modalSubmit.addEventListener('submit', (ev) => {
+        console.log('hi')
+        ev.preventDefault()
+
+        // grab all values from the form
+        let postData = {}
+        let formElements = ev.target.elements
+
+        for (var i = 0; i < formElements.length; i++) {
+          let inputName = formElements[i].name
+          if (inputName) {
+            postData[inputName] = formElements[i].value
+          }
+        }
+
+        console.log('postData', postData);
+
+        // axios.post that data to the correct backend route
+        // axios.post('/reports', postData)
+        //   .then((response) => {
+        //     console.log(response)
+        //     getReports() //call this once again
+        //   })
+        //   .catch((error) => {
+        //     console.log(error)
+        //   })
+      })
+    })
+
 }

@@ -7,13 +7,11 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
     <link href="https://fonts.googleapis.com/css?family=Petrona|Rosarivo"
       rel="stylesheet">
-    <!--Let browser know website is optimized for mobile-->
+    <!--optimized for mobile-->
     <meta name="viewport"
       content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet"
@@ -28,28 +26,30 @@
       <div class="container nav">
         <a href="../index.html">Login</a>
         <a href="./create.html">Add a Film</a>
-        <a href="./edit/edit.html">Edit a Film</a>
       </div>
     </header>
 
     <div class="container"
       id="cards"></div>
-    <!-- Modal Trigger -->
-    <!-- <a class="waves-effect waves-light btn modal-trigger"
-      href="#modal1">Modal</a> -->
-
     <!-- Modal Structure -->
-    <!-- <div id="modal1"
+    <div id="modal1"
       class="modal bottom-sheet">
       <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+        <p>Edit and Submit Selected Film</p>
+        <form action="">
+          <input type="text"
+            id="modalTitle">Title
+          <input type="number"
+            id="modalYear">Year
+          <input type="text"
+            id='modalPhoto'>Photo Link
+          <br>
+          <button type="submit"
+            class="modal-close waves-effect"
+            id="modalSubmit">submit</button>
+        </form>
       </div>
-      <div class="modal-footer">
-        <a href="#!"
-          class="modal-close waves-effect waves-green btn-flat">Agree</a>
-      </div>
-    </div> -->
+    </div>
 
     <!-- first card for demo mode -->
     <!-- <div class="row">
@@ -73,10 +73,8 @@
         </div>
       </div>
     </div> -->
-
     <footer>
-
-
+      <br>
       <a href="https://fischer-moviedb.herokuapp.com/"
         target="_blank">Werner Herzog Film Database</a>
     </footer>
