@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log(' create script: 🎬')
   formSubmit()
   let submitBadge = document.getElementById('submitBadge')
   submitBadge.style.display = "none"
   //end of DOMContentLoaded scope\\
 })
-
 
 function formSubmit() {
   let formBtn = document.getElementById('filmForm')
@@ -26,7 +24,6 @@ function formSubmit() {
       release_date: editYear,
       photo: editPhoto
     }
-
     // axios.post that data to the correct backend route
     axios.post('https://fischer-moviedb.herokuapp.com/movies', newFilmObj)
       .then((response) => {
@@ -34,7 +31,6 @@ function formSubmit() {
         if (response) {
           alert(`Success! “I'm quite convinced that cooking is the only alternative to film making. Maybe there's also another alternative, that's walking on foot.” ― WH`)
         }
-        //call this once again
       })
       .catch((error) => {
         console.log(error)

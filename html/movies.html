@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
     <meta charset="utf-8">
@@ -28,14 +28,16 @@
         <a href="./create.html">Add a Film</a>
       </div>
     </header>
-
+    <!-- parent container for cards -->
     <div class="container"
       id="cards"></div>
     <!-- Modal Structure -->
     <div id="modal1"
       class="modal bottom-sheet">
       <div class="modal-content">
-        <p>Edit and Submit Selected Film</p>
+        <h6>Edit and Submit Selected Film</h6>
+        <h5 id="formTitle"></h5>
+        <p>(click off form to cancel edit)</p>
         <form action=""
           id="modalSubmit">
           <input type="text"
@@ -47,42 +49,16 @@
           <br>
           <input type="submit"
             class="modal-close">
-
         </form>
       </div>
     </div>
-
-    <!-- first card for demo mode -->
-    <!-- <div class="row">
-      <div class="col s12 m7">
-        <div class="card">
-          <span class="card-title"
-            id="m_title">Card Title</span>
-          <div class="card-image">
-            <img src=""
-              id="m_photo">
-
-          </div>
-          <div class="card-content"
-            id="m_release">
-            <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <footer>
+      <hr>
+      <br>
       <br>
       <a href="https://fischer-moviedb.herokuapp.com/"
         target="_blank">Werner Herzog Film Database</a>
     </footer>
-
-
-
-
     <script src="../javascripts/movies.js"></script>
     </script>
   </body>

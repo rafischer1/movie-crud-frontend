@@ -16,10 +16,30 @@ h2 {
   font-family: 'Rosarivo', serif;
 }
 
+h6 {
+  font-family: 'Rosarivo', serif;
+  color: rgb(52, 47, 41);
+}
+
+h5 {
+  font-family: 'Rosarivo', serif;
+  color: rgb(52, 47, 41);
+}
+
+h5:hover {
+  color: rgb(52, 47, 41);
+  text-shadow: rgb(108, 101, 94) 0px 1px;
+}
+
+#indexImage {
+  height: 80%;
+  width: 80%;
+  border: 5px ridge rgb(108, 101, 94);
+}
+
 #cards {
   justify-content: center;
 }
-
 
 .card {
   max-width: 400px;
@@ -30,6 +50,9 @@ h2 {
 
 #loginBtn, #formBtn {
   border-radius: 25px;
+}
+
+a#loginBtn:hover {
   border: none;
 }
 
@@ -49,7 +72,6 @@ div.col {
 .nav {
   font-family: 'Petrona', serif;
   padding: 10px;
-  /* background-color: rgb(215, 202, 181); */
 }
 
 a {
@@ -72,10 +94,6 @@ a:active {
 
 a:visited {
   color: white;
-}
-
-a#loginBtn:hover {
-  border: none;
 }
 
 /* login page */
@@ -133,5 +151,4 @@ button:active {
   border: 2px solid rgb(215, 202, 181);
   border-radius: 30px;
   padding: 14px;
-
 }
